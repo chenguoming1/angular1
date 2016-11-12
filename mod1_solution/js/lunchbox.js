@@ -6,11 +6,25 @@
       var lunchBox = this;
       lunchBox.lunchMenu = '';
       lunchBox.message = '';
+      lunchBox.error = false;
+      lunchBox.success = false;
+
+      function lunchBoxSuccess(successMessage) {
+        lunchBox.message = successMessage;
+        lunchBox.error = false;
+        lunchBox.success = true;
+      }
+
+      function lunchBoxError() {
+        lunchBox.error = true;
+        lunchBox.success = false;
+        lunchBox.message = "Please enter data first";
+      }
 
       lunchBox.checkItTooMuch = function() {
         //Check whether the string is empty
         if(lunchBox.lunchMenu.trim().length == 0) {
-          lunchBox.message = "Please enter data first";
+          lunchBoxError();
           return;
         }
 
@@ -26,17 +40,17 @@
 
         // array length > 3
         if (newLunchMenu.length > 3) {
-          lunchBox.message = "Too much!";
+          lunchBoxSuccess("Too much!");
           return;
         }
 
         // 1 <= array length < 3
         if (newLunchMenu.length >= 1) {
-          lunchBox.message = "Enjoy!";
+          lunchBoxSuccess("Enjoy!");
           return;
         }
 
-        lunchBox.message = "Please enter data first";
+        lunchBoxError();
       };
     });
 })();
