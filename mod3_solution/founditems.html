@@ -1,0 +1,8 @@
+<ol>
+  <li ng-repeat="item in foundItems">
+    <p>
+    {{ item.name }} {{ item.short_name }} {{item.description}}
+    <button ng-click="dontWantThis({selectedIndex: $index})">Don't want this one!</button>
+  </p>
+  </li>
+</ol>
