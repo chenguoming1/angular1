@@ -47,7 +47,7 @@ app.directive('foundItems', function() {
     restrict: 'E',
     templateUrl: 'founditems.html',
     scope: {
-      foundItems: '=',
+      foundItems: '<',
       dontWantThis : '&onRemove'
     }
   };
