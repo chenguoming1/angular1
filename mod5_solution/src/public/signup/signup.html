@@ -1,0 +1,38 @@
+<div class="container">
+    <form novalidate class="bo-form" name="boForm" ng-submit="boForm.$valid && $ctrl.signup()" >
+  <h2 class="text-center">
+      Signup
+  </h2>
+  <div class="form-group">
+      <input type="text" required class="form-control" name="name" ng-model="$ctrl.user.name" placeholder="Name"/>
+      <div ng-show="boForm.$submitted || boForm.name.$touched" class="error">
+          <span ng-show="boForm.name.$error.required">Tell us your name.</span>
+      </div>
+  </div>
+  <div class="form-group">
+      <input type="email" required class="form-control" name="email" ng-model="$ctrl.user.email" placeholder="Email"/>
+      <div ng-show="boForm.$submitted || boForm.email.$touched" class="error">
+          <span ng-show="boForm.email.$error.required">Tell us your email.</span>
+          <span ng-show="boForm.email.$error.email">This is not a valid email.</span>
+    </div>
+  </div>
+  <div class="form-group">
+      <input type="number" required class="form-control" name="phoneNo" ng-model="$ctrl.user.phoneNo" placeholder="Phone No"/>
+      <div ng-show="boForm.$submitted || boForm.phoneNo.$touched" class="error">
+          <span ng-show="boForm.phoneNo.$error.required">Tell us your phone no.</span>
+          <span ng-show="boForm.phoneNo.$error.number">Please enter digit only.</span>
+      </div>
+  </div>
+  <div class="form-group">
+      <input type="text" name="shortName" required class="form-control" ng-model="$ctrl.user.shortName" placeholder="Short Name"/>
+      <div ng-show="boForm.$submitted || boForm.shortName.$touched" class="error">
+          <span ng-show="boForm.shortName.$error.required">Tell us your intereted menu item.</span>
+      </div>
+      <label ng-if="!$ctrl.isValidShortName()" class="error">No such menu number exists</label>
+  </div>
+
+  <input type="submit" class="form-control"/>
+  </form>
+
+  <h1 ng-if="$ctrl.signupSuccessMessage">{{$ctrl.signupSuccessMessage}}</h1>
+</div>

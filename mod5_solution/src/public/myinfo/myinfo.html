@@ -1,0 +1,31 @@
+<div class="container">
+    <div ng-if="$ctrl.getUser()">
+        <div class="form-group">
+            Name:
+            {{$ctrl.getUser().name}}
+        </div>
+        <div class="form-group">
+            Email:
+            {{$ctrl.getUser().email}}
+        </div>
+
+        <div class="form-group">
+            Phone No:
+            {{$ctrl.getUser().phoneNo}}
+        </div>
+
+        <div class="form-group">
+            ShortName:
+            {{$ctrl.getUser().shortName}}
+        </div>
+
+        <div class="form-group">
+            <img src="https://bo-restaurant.herokuapp.com/images/{{$ctrl.getUser().shortName}}.json">
+            <h3>{{$ctrl.getUser().menuItem.name}}</h3>
+            <p>{{$ctrl.getUser().menuItem.description}}</p>
+        </div>
+
+    </div>
+    <div ng-if="!$ctrl.getUser()">Not Signed Up Yet.
+    <a href="#" ui-sref="public.signup">Sign up Now!</a></div>
+</div>
